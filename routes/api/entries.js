@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     Entry.find()
         .then(entries => {
             res.json(entries)
-            console.log("Get request received");
+            console.log("Get request received"); 
         })
 });
 
