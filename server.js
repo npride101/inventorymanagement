@@ -1,14 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
 const entries = require('./routes/api/entries');
 
 const app = express();
+// BodyParser middleware
+app.use(bodyParser.json());
+
 // Import Mongo URI 
 const db = require("./config/db").mongoURI;
 
 // Connect to Mongo DB using Mongoose, need help with understanding how exactly the syntax of the promise function
 mongoose
-.connect(db)
+.connect(db) 
 .then(() => console.log("Connection to MongoDB successful..."))
 .catch(err => console.log(err));
 
